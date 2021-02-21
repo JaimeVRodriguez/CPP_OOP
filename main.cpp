@@ -4,10 +4,35 @@ using namespace std;
 
 // Attribute are private by default
 class Employee{
-public:
+// Properties are private
+// Can not "accessed"
+// Need getters and setters
+private:
     string Name;
     string Company;
     int Age;
+
+public:
+    void setName(string name) {
+        Name = name;
+    }
+    string getName() {
+        return Name;
+    }
+    void setCompany(string company) {
+        Company = company;
+    }
+    string getCompany() {
+        return Company;
+    }
+    void setAge(int age) {
+        if(age >= 18) {
+            Age = age;
+        }
+    }
+    int getAge(){
+        return Age;
+    }
 
     void Introduction() {
         cout << "Employee Info:\n";
@@ -40,5 +65,11 @@ int main() {
 
     Employee employee2 = Employee("Jaime", "Novetta", 34);
     employee2.Introduction();
+
+    employee2.setAge(12);
+    employee2.Introduction();
+
+
+
 
 }
