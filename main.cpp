@@ -2,8 +2,13 @@
 
 using namespace std;
 
+// Abstraction
+class AbstractEmployee{
+    virtual void Promotion() = 0;
+};
+
 // Attribute are private by default
-class Employee{
+class Employee:AbstractEmployee {
 // Properties are private
 // Can not "accessed"
 // Need getters and setters
@@ -41,6 +46,14 @@ public:
         cout << "Age - " << Age << endl;
     }
 
+    void Promotion() {
+        if(Age > 30) {
+            cout << Name << " is promoted!" << endl;
+        } else {
+            cout << Name << " not promoted." << endl;
+        }
+    }
+
     Employee(string name, string company, int age) {
         Name = name;
         Company = company;
@@ -66,8 +79,14 @@ int main() {
     Employee employee2 = Employee("Jaime", "Novetta", 34);
     employee2.Introduction();
 
+    cout << "" << endl;
+    // Will not set to 12 years old because of condition
     employee2.setAge(12);
     employee2.Introduction();
+
+    cout << "" << endl;
+
+    employee2.Promotion();
 
 
 
